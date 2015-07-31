@@ -34,14 +34,14 @@ function domobj(){
     thishtml += "</div>";
     $("#content").append(thishtml);
     $('.product-container').hover(function(){
-      $(this).find('.overlay:first').show();
+      $(this).find('.overlay:first').fadeIn(400);
     },function(){
-      $(this).find('.overlay:first').hide();
+      $(this).find('.overlay:first').fadeOut(400);
     });
 
     $('.closer').click(function(){
-      $(this).closest('.product-container').slideUp(function() {
-        self.products[$(this).attr("rel-data-id")].active = false;
+      $(this).closest('.box').slideUp(function() {
+        self.products[$(this).parent().attr("rel-data-id")].active = false;
         self.updatedom();
       });
     });
